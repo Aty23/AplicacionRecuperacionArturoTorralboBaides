@@ -1,8 +1,6 @@
 package com.arturotorralbo.aplicacionvideojuegologros.login.presentation
 
-import android.content.Context
 import android.util.Patterns
-import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -38,13 +36,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.arturotorralbo.aplicacionvideojuegologros.R
+import com.arturotorralbo.aplicacionvideojuegologros.navigation.AppScreens
 
-@Preview(showBackground = true, showSystemUi = true)
+//@Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun LoginScreen() {
+fun LoginScreen(navController: NavController) {
     val context = LocalContext.current
 
     var email by remember { mutableStateOf("") }
@@ -88,9 +87,9 @@ fun LoginScreen() {
                         isValidPassword = isValidPassword
                     )
                     RowButtonLogin(
-                        context = context,
                         isValidEmail = isValidEmail,
-                        isValidPassword = isValidPassword
+                        isValidPassword = isValidPassword,
+                        navController= navController
                     )
                 }
             }
@@ -201,7 +200,8 @@ fun RowPassword(
 
 @Composable
 fun RowButtonLogin(
-    context: Context, isValidEmail: Boolean, isValidPassword: Boolean
+    isValidEmail: Boolean, isValidPassword: Boolean,
+    navController: NavController
 ) {
     Row(
         Modifier
@@ -210,7 +210,7 @@ fun RowButtonLogin(
     ) {
         Button(
             modifier = Modifier.fillMaxWidth(),
-            onClick = { login(context) },
+            onClick = { navController.navigate(route = AppScreens.HomeScreen.route) },
             enabled = isValidEmail && isValidPassword
         ) {
             Text(text = "Iniciar sesión")
@@ -219,6 +219,3 @@ fun RowButtonLogin(
 
 }
 
-fun login(context: Context) {
-    Toast.makeText(context, "Fake Login", Toast.LENGTH_LONG).show()
-}

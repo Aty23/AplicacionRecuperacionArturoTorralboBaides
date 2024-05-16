@@ -1,6 +1,7 @@
 package com.arturotorralbo.aplicacionvideojuegologros.home.presentation
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -21,6 +22,7 @@ import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ChainStyle
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.navigation.NavController
+import com.arturotorralbo.aplicacionvideojuegologros.navigation.AppScreens
 import com.arturotorralbo.aplicacionvideojuegologros.resources.IconBack
 
 @Composable
@@ -44,7 +46,7 @@ fun HomeScreen(navController: NavController) {
         Body(modifier = Modifier.constrainAs(body) {
             top.linkTo(header.bottom)
             bottom.linkTo(footer.top)
-        })
+        }, navController)
 
         Footer(modifier = Modifier.constrainAs(footer) {
             top.linkTo(body.bottom)
@@ -77,28 +79,28 @@ fun Header(modifier: Modifier, navController: NavController) {
 }
 
 @Composable
-fun Body(modifier: Modifier) {
+fun Body(modifier: Modifier, navController: NavController) {
 
 
     Column(
         modifier = modifier.padding(16.dp)
     ) {
         Row(modifier = modifier.height(100.dp)) {
-            Text(fontWeight = FontWeight.Bold, text = "History")
-            //esto será un extensible
+            Text(fontWeight = FontWeight.Bold, text = "History introduction", modifier = Modifier.clickable { navController.navigate(route = AppScreens.HistoryScreen.route) })
+            //esto será un texto que reciba de una api
 
         }
         Row {
             Text(fontWeight = FontWeight.Bold,text = "Characters and enemies")
-            //esto será un extensible
+            //esto será un extensible puede que ni esté
         }
         Row {
             Text(fontWeight = FontWeight.Bold,text = "Habilities")
-            //esto será un extensible
+            //esto será un extensible puede que ni esté
         }
         Row {
-            Text(fontWeight = FontWeight.Bold,text = "map")
-            //esto será un extensible
+            Text(fontWeight = FontWeight.Bold,text = "Map")
+            //esto será un extensible puede que ni esté
         }
 
 

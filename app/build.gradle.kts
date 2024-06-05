@@ -57,6 +57,7 @@ dependencies {
 
     implementation("io.github.jan-tennert.supabase:gotrue-kt:2.4.3")
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
+    implementation("com.google.dagger:hilt-android:2.48.1")
     implementation("io.github.jan-tennert.supabase:compose-auth:2.4.3")
     implementation("io.github.jan-tennert.supabase:compose-auth-ui:2.4.3")
     implementation("io.github.jan-tennert.supabase:storage-kt:2.4.3")

@@ -9,19 +9,13 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.lifecycleScope
-import com.arturotorralbo.aplicacionvideojuegologros.models.achivementsList
 import com.arturotorralbo.aplicacionvideojuegologros.navigation.AppNavigation
 import com.arturotorralbo.aplicacionvideojuegologros.ui.theme.AplicacionVideojuegoLogrosTheme
-import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        lifecycleScope.launch {
-            val achivements = achivementsList()
 
-        }
         setContent {
             AplicacionVideojuegoLogrosTheme {
                 // A surface container using the 'background' color from the theme

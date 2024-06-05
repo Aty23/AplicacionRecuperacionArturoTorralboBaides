@@ -3,16 +3,19 @@ package com.arturotorralbo.aplicacionvideojuegologros
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.arturotorralbo.aplicacionvideojuegologros.home.presentation.HomeViewModel
 import com.arturotorralbo.aplicacionvideojuegologros.navigation.AppNavigation
 import com.arturotorralbo.aplicacionvideojuegologros.ui.theme.AplicacionVideojuegoLogrosTheme
 
 class MainActivity : ComponentActivity() {
+    val  homeViewModel: HomeViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

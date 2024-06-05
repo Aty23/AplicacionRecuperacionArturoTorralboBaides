@@ -27,6 +27,8 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -106,7 +108,9 @@ fun ListItemRow(item: Achivement) {
 }
 
 @Composable
-fun HomeScreen(navController: NavController) {
+fun HomeScreen(navController: NavController, homeViewModel: HomeViewModel) {
+    val isLoading: Boolean by homeViewModel.isLoading.observeAsState(initial = false)
+
     /*CoroutineScope(Dispatchers.IO).launch {
         val response = try{
             achivementsList()

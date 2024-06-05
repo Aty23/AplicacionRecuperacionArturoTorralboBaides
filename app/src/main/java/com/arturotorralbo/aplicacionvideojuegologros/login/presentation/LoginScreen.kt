@@ -31,7 +31,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -44,7 +43,7 @@ import com.arturotorralbo.aplicacionvideojuegologros.navigation.AppScreens
 //@Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun LoginScreen(navController: NavController) {
-    val context = LocalContext.current
+
 
     var email by remember { mutableStateOf("") }
     var isValidEmail by remember { mutableStateOf(false) }
@@ -57,7 +56,7 @@ fun LoginScreen(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFb5e48c))
+            .background(Color(0xFF60a8e4))
     ) {
         Column(
             Modifier
@@ -106,7 +105,7 @@ fun RowImage() {
     ) {
         Image(
             modifier = Modifier.width(100.dp),
-            painter = painterResource(id = R.drawable.logo),
+            painter = painterResource(id = R.drawable.logovideojuego),
             contentDescription = "logo de la app"
         )
     }
